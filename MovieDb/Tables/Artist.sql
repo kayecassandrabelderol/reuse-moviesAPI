@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Actor]
+﻿CREATE TABLE [dbo].[Artist]
 (
     [Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Name] NVARCHAR(50) NOT NULL, 
