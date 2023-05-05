@@ -12,11 +12,11 @@ namespace MovieApi.Controllers
     public class GenresController : ControllerBase
     {
         private readonly IGenreService _genreService;
-        private readonly IMovieService _movieService;
-        private readonly IMovieGenreService _movieGenreService;
+        private readonly ISongService _movieService;
+        private readonly ISongGenreService _movieGenreService;
         private readonly ILogger<GenresController> _logger;
 
-        public GenresController(IGenreService genreService, ILogger<GenresController> logger, IMovieService movieService, IMovieGenreService movieGenreService)
+        public GenresController(IGenreService genreService, ILogger<GenresController> logger, ISongService movieService, ISongGenreService movieGenreService)
         {
             _genreService = genreService;
             _logger = logger;
@@ -117,7 +117,7 @@ namespace MovieApi.Controllers
         /// <response code = "500">Internal Server Error</response>
         [HttpGet("{id}/movies", Name = "GetGenreMovies")]
         [Produces("application/json")]
-        [ProducesResponseType(typeof(MovieDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SongDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
