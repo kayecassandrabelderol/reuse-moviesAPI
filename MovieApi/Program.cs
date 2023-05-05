@@ -59,15 +59,15 @@ void ConfigureServices(IServiceCollection services)
     services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
     //Services
-    services.AddScoped<IMovieService, MovieService>();
+    services.AddScoped<ISongService, SongService>();
     services.AddScoped<IGenreService, GenreService>();
     services.AddScoped<IActorService, ActorService>();
     services.AddScoped<IAwardService, AwardService>();
-    services.AddScoped<IMovieActorService, MovieActorService>();
-    services.AddScoped<IMovieGenreService, MovieGenreService>();
+    services.AddScoped<ISongArtistService, SongArtistService>();
+    services.AddScoped<ISongGenreService, SongGenreService>();
 
     //Repos
-    services.AddScoped<IMovieRepository, MovieRepository>();
+    services.AddScoped<ISongRepository, SongRepository>();
     services.AddScoped<IGenreRepository, GenreRepository>();
     services.AddScoped<IActorRepository, ActorRepository>();
     services.AddScoped<IAwardRepository, AwardRepository>();
