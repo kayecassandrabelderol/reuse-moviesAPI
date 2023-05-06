@@ -1,10 +1,10 @@
-﻿CREATE PROCEDURE [dbo].[spActor_GetAllByMovieId]
-    @movieId int
+﻿CREATE PROCEDURE [dbo].[spArtist_GetAllBySongId]
+    @songId int
 AS
 BEGIN
-    SELECT ac.*
-    FROM Actor ac
-    INNER JOIN MovieActor ma ON ma.ActorId = ac.Id
-    INNER JOIN Movie m ON m.Id = ma.MovieId
-    WHERE m.Id = @movieId
+    SELECT ar.*
+    FROM Artist ar
+    INNER JOIN SongArtist sa ON sa.ArtistId = ar.Id
+    INNER JOIN Song s ON s.Id = sa.SongId
+    WHERE s.Id = @songId
 END

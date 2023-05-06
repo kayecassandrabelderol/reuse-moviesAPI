@@ -2,12 +2,12 @@
 
 namespace MovieApi.Models
 {
-    public class Actor
+    public class Artist
     {
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Gender { get; set; }
         public DateTime Birthday { get; set; }
-        public List<Song> Movies { get; set; } = new List<Song>();
+        public List<Song> Songs { get; set; } = new List<Song>();
     }
 }

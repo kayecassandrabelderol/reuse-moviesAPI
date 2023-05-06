@@ -22,11 +22,11 @@ namespace MovieApi.Services
         /// Gets all Songs from a given <paramref name="artistId"/>
         /// </summary>
         /// <param name="artistId"></param>
-        /// <returns>Returns all Songs from an actor as SongDto</returns>
+        /// <returns>Returns all Songs from an artist as SongDto</returns>
         Task<IEnumerable<SongDto>> GetAllSongsByArtistId(int artistId);
 
         /// <summary>
-        /// Gets a single movie from a given <paramref name="id"/>
+        /// Gets a single song from a given <paramref name="id"/>
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Returns a Songs with all of its Properties as SongByIdDto</returns>

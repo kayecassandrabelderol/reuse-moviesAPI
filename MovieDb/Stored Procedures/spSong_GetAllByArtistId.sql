@@ -1,10 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[spSong_GetAllByArtistId]
-	@actorId int
+	@artistId int
 AS
 BEGIN
-	SELECT m.*
-    FROM Song m
-    INNER JOIN SongArtist ma ON ma.SongId = m.Id
-    INNER JOIN Artist a ON a.Id = ma.ArtistId
-    WHERE a.Id = @actorId
+	SELECT s.*
+    FROM Song s
+    INNER JOIN SongArtist sa ON sa.SongId = s.Id
+    INNER JOIN Artist a ON a.Id = sa.ArtistId
+    WHERE a.Id = @artistId
 END

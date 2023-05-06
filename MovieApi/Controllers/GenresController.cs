@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Api.Dtos.Genre;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MovieApi.Dtos.Genre;
@@ -12,16 +13,16 @@ namespace MovieApi.Controllers
     public class GenresController : ControllerBase
     {
         private readonly IGenreService _genreService;
-        private readonly ISongService _movieService;
-        private readonly ISongGenreService _movieGenreService;
+        private readonly ISongService _songService;
+        private readonly ISongGenreService _songGenreService;
         private readonly ILogger<GenresController> _logger;
 
-        public GenresController(IGenreService genreService, ILogger<GenresController> logger, ISongService movieService, ISongGenreService movieGenreService)
+        public GenresController(IGenreService genreService, ILogger<GenresController> logger, ISongService songService, ISongGenreService songGenreService)
         {
             _genreService = genreService;
             _logger = logger;
-            _movieService = movieService;
-            _movieGenreService = movieGenreService;
+            _songService = songService;
+            _songGenreService = songGenreService;
         }
 
         /// <summary>
@@ -101,27 +102,27 @@ namespace MovieApi.Controllers
         }
 
         /// <summary>
-        /// Gets all movies of a genre
+        /// Gets all songs of a genre
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>Returns all movies of a genre</returns>
+        /// <returns>Returns all songs of a genre</returns>
         /// <remarks>
         /// Sample request:
         /// 
-        ///     GET /api/Genres/1/movies
+        ///     GET /api/Genres/1/songs
         /// 
         /// </remarks>
-        /// <response code = "200">Successfully returned movies</response>
-        /// <response code = "204">Genre have no movies</response>
+        /// <response code = "200">Successfully returned songs</response>
+        /// <response code = "204">Genre have no songs</response>
         /// <response code = "404">Genre with <paramref name="id"/> does not exist</response>
         /// <response code = "500">Internal Server Error</response>
-        [HttpGet("{id}/movies", Name = "GetGenreMovies")]
+        [HttpGet("{id}/songs", Name = "GetGenreSongs")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(SongDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetGenreMovies(int id)
+        public async Task<IActionResult> GetGenreSongs(int id)
         {
             try
             {
@@ -132,13 +133,13 @@ namespace MovieApi.Controllers
                     return NotFound($"Genre with id {id} does not exist");
                 }
 
-                var movies = await _movieService.GetAllMoviesByGenreId(id);
-                if (!movies.Any())
+                var songs = await _songService.GetAllSongsByGenreId(id);
+                if (!songs.Any())
                 {
                     return NoContent();
                 }
 
-                return Ok(movies);
+                return Ok(songs);
             }
             catch (Exception e)
             {
@@ -190,28 +191,28 @@ namespace MovieApi.Controllers
         }
 
         /// <summary>
-        /// Adds a movie to a genre
+        /// Adds a songs to a genre
         /// </summary>
-        /// <param name="movieId"></param>
+        /// <param name="songId"></param>
         /// <param name="id"></param>
         /// <returns></returns>
         /// <remarks>
         /// Sample request:
         /// 
-        ///     PUT /api/Genres/1/movies/2
+        ///     PUT /api/Genres/1/songs/2
         /// 
         /// </remarks>
-        /// <response code = "200">Successfully added movie to genre</response>
-        /// <response code = "400">Movie is already in genre</response>
-        /// <response code = "404">Genre / Movie with the given ids does not exist</response>
+        /// <response code = "200">Successfully added songs to genre</response>
+        /// <response code = "400">Song is already in genre</response>
+        /// <response code = "404">Genre / Song with the given ids does not exist</response>
         /// <response code = "500">Internal Server Error</response>
-        [HttpPut("{id}/movies/{movieId}", Name = "AddMovieToGenre")]
+        [HttpPut("{id}/songs/{songId}", Name = "AddSongToGenre")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> AddMovieToGenre(int movieId, int id)
+        public async Task<IActionResult> AddSongToGenre(int songId, int id)
         {
             try
             {
@@ -222,21 +223,21 @@ namespace MovieApi.Controllers
                     return NotFound($"Genre with id {id} does not exist");
                 }
 
-                var movie = await _movieService.GetMovieOnly(movieId);
+                var song = await _songService.GetSongOnly(songId);
 
-                if (movie == null)
+                if (song == null)
                 {
-                    return NotFound($"Movie with id {movieId} does not exist");
+                    return NotFound($"Song with id {songId} does not exist");
                 }
 
-                //check if genre is already in movie
-                if (await _movieGenreService.IsGenreInMovie(movieId, id))
+                //check if genre is already in song
+                if (await _songGenreService.IsGenreInSong(songId, id))
                 {
-                    return BadRequest("Movie Already In Genre");
+                    return BadRequest("Song Already In Genre");
                 }
 
-                var isComplete = await _movieGenreService.AddGenreInMovie(movieId, id);
-                return Ok("Added Genre to Movie");
+                var isComplete = await _songGenreService.AddGenreInSong(songId, id);
+                return Ok("Added Genre to Song");
             }
             catch (Exception e)
             {
@@ -336,28 +337,28 @@ namespace MovieApi.Controllers
         }
 
         /// <summary>
-        /// Removes a movie from a genre
+        /// Removes a songs from a genre
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="movieId"></param>
+        /// <param name="songId"></param>
         /// <returns></returns>
         /// <remarks>
         /// Sample request:
         /// 
-        ///     DELETE /api/Genres/1/movies/2
+        ///     DELETE /api/Genres/1/songs/2
         /// 
         /// </remarks>
-        /// <response code = "200">Successfully deleted movie from genre</response>
-        /// <response code = "400">Movie is not in genre</response>
-        /// <response code = "404">Genre / Movie with the given ids does not exist</response>
+        /// <response code = "200">Successfully deleted song from genre</response>
+        /// <response code = "400">Song is not in genre</response>
+        /// <response code = "404">Genre / Song with the given ids does not exist</response>
         /// <response code = "500">Internal Server Error</response>
-        [HttpDelete("{id}/movies/{movieId}", Name = "DeleteMovieFromGenre")]
+        [HttpDelete("{id}/songs/{songId}", Name = "DeleteSongFromGenre")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> DeleteMovieFromGenre(int id, int movieId)
+        public async Task<IActionResult> DeleteSongFromGenre(int id, int songId)
         {
             try
             {
@@ -368,20 +369,20 @@ namespace MovieApi.Controllers
                     return NotFound($"Genre with id {id} does not exist");
                 }
 
-                var movie = await _movieService.GetMovieOnly(movieId);
+                var song = await _songService.GetSongOnly(songId);
 
-                if (movie == null)
+                if (song == null)
                 {
-                    return NotFound($"Movie with id {movieId} does not exist");
+                    return NotFound($"Song with id {songId} does not exist");
                 }
 
-                if (!(await _movieGenreService.IsGenreInMovie(movieId, id)))
+                if (!(await _songGenreService.IsGenreInSong(songId, id)))
                 {
-                    return BadRequest("Movie is NOT in Genre");
+                    return BadRequest("Song is NOT in Genre");
                 }
 
-                var isMovieFromGenreDeleted = await _movieGenreService.DeleteGenreInMovie(movieId, id);
-                return Ok("Movie From Genre Deleted");
+                var isSongFromGenreDeleted = await _songGenreService.DeleteGenreInSong(songId, id);
+                return Ok("Song From Genre Deleted");
             }
             catch (Exception e)
             {

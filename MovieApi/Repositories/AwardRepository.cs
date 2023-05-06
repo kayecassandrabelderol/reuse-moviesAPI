@@ -17,7 +17,7 @@ namespace MovieApi.Repositories
 
         public async Task<int> Create(Award award)
         {
-            var sql = @"INSERT INTO Award (Name, Year, MovieId) VALUES (@Name, @Year, @MovieId);
+            var sql = @"INSERT INTO Award (Name, Year, SongId) VALUES (@Name, @Year, @SongId);
                         SELECT SCOPE_IDENTITY();";
 
             using (var connection = _context.CreateConnection())
@@ -47,13 +47,13 @@ namespace MovieApi.Repositories
             }
         }
 
-        public async Task<IEnumerable<Award>> GetAllByMovieId(int movieId)
+        public async Task<IEnumerable<Award>> GetAllBySongId(int songId)
         {
-            var sql = "spAward_GetAllByMovieId";
+            var sql = "spAward_GetAllBySongId";
 
             using (var connection = _context.CreateConnection())
             {
-                return await connection.QueryAsync<Award>(sql, new { movieId }, commandType: CommandType.StoredProcedure);
+                return await connection.QueryAsync<Award>(sql, new { songId }, commandType: CommandType.StoredProcedure);
             }
         }
 

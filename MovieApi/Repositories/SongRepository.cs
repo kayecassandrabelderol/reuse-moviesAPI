@@ -61,25 +61,25 @@ namespace MovieApi.Repositories
 
             using (var connection = _context.CreateConnection())
             {
-                var song = await connection.QueryAsync<Song, Genre, Actor, Award, Song>(
+                var song = await connection.QueryAsync<Song, Genre, Artist, Award, Song>(
                     sql,
-                    map: (movie, genre, actor, award) =>
+                    map: (song, genre, artist, award) =>
                     {
-                        movie.Genres.Add(genre);
-                        movie.Actors.Add(actor);
-                        movie.Awards.Add(award);
-                        return movie;
+                        song.Genres.Add(genre);
+                        song.Artists.Add(artist);
+                        song.Awards.Add(award);
+                        return song;
                     },
                     param: new { id },
                     commandType: CommandType.StoredProcedure);
 
                 var songerist = song.GroupBy(m => m.Id).Select(mg =>
                 {
-                    var firstmovie = mg.First();
-                    firstmovie.Genres = mg.SelectMany(a => a.Genres).ToList();
-                    firstmovie.Actors = mg.SelectMany(a => a.Actors).ToList();
-                    firstmovie.Awards = mg.SelectMany(a => a.Awards).ToList();
-                    return firstmovie;
+                    var firstsong = mg.First();
+                    firstsong.Genres = mg.SelectMany(a => a.Genres).ToList();
+                    firstsong.Artists = mg.SelectMany(a => a.Artists).ToList();
+                    firstsong.Awards = mg.SelectMany(a => a.Awards).ToList();
+                    return firstsong;
                 }).First();
 
                 return songerist;
@@ -175,14 +175,14 @@ namespace MovieApi.Repositories
             }
         }
 
-        public async Task<bool> DeleteArtistInSong(int movieId, int actorId)
+        public async Task<bool> DeleteArtistInSong(int songId, int artistId)
         {
             var sql = @"DELETE FROM SongArtist
                         WHERE SongId = @songId AND ArtistId = @artistId";
 
             using (var connection = _context.CreateConnection())
             {
-                var delete = await connection.ExecuteAsync(sql, new { movieId, actorId });
+                var delete = await connection.ExecuteAsync(sql, new { songId, artistId });
                 return delete == 1;
             }
         }

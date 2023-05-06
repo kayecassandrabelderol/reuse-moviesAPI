@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Api.Dtos.Genre;
+using AutoMapper;
 using MovieApi.Contracts;
 using MovieApi.Dtos.Genre;
 using MovieApi.Models;
@@ -37,9 +38,9 @@ namespace MovieApi.Services
             return _mapper.Map<IEnumerable<GenreDto>>(genreModels);
         }
 
-        public async Task<IEnumerable<GenreDto>> GetAllGenres(int movieId)
+        public async Task<IEnumerable<GenreDto>> GetAllGenres(int songId)
         {
-            var genreModels = await _genreRepository.GetAllByMovieId(movieId);
+            var genreModels = await _genreRepository.GetAllBySongId(songId);
 
             return _mapper.Map<IEnumerable<GenreDto>>(genreModels);
         }

@@ -1,9 +1,9 @@
-﻿CREATE PROCEDURE [dbo].[spAward_GetAllByMovieId]
-    @movieId int
+﻿CREATE PROCEDURE [dbo].[spAward_GetAllBySongId]
+    @songId int
 AS
 BEGIN
     SELECT aw.*
     FROM Award aw
-    INNER JOIN Movie m ON m.Id = aw.MovieId
-    WHERE m.Id = @movieId
+    INNER JOIN Song s ON s.Id = aw.SongId
+    WHERE s.Id = @songId
 END

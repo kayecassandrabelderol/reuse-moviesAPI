@@ -59,7 +59,6 @@
     <Folder Include="Tables" />
     <Folder Include="Stored Procedures" />
     <Folder Include="Scripts" />
-    <Folder Include="Mocks" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Song.sql" />
@@ -77,10 +76,10 @@
     <Build Include="Stored Procedures\spSong_GetSongDetails.sql" />
     <Build Include="Stored Procedures\spSongArtist_IsArtistInSong.sql" />
     <Build Include="Stored Procedures\spSongGenre_IsGenreInSong.sql" />
-    <None Include="Mocks\MovieDataMocks.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\tempScript.sql" />
+    <None Include="Scripts\ArtistDataScripts.sql" />
     <None Include="MovieDb.publish.xml" />
   </ItemGroup>
 </Project>

@@ -6,74 +6,74 @@ using System.Data;
 
 namespace MovieApi.Repositories
 {
-    public class ActorRepository : IActorRepository
+    public class ArtistRepository : IArtistRepository
     {
         private readonly DapperContext _context;
 
-        public ActorRepository(DapperContext context)
+        public ArtistRepository(DapperContext context)
         {
             _context = context;
         }
 
-        public async Task<int> Create(Actor actor)
+        public async Task<int> Create(Artist artist)
         {
-            var sql = @"INSERT INTO Actor (Name, Gender, Birthday) VALUES (@Name, @Gender, @Birthday);
+            var sql = @"INSERT INTO Artist (Name, Gender, Birthday) VALUES (@Name, @Gender, @Birthday);
                         SELECT SCOPE_IDENTITY();";
 
             using (var connection = _context.CreateConnection())
             {
-                return await connection.ExecuteScalarAsync<int>(sql, actor);
+                return await connection.ExecuteScalarAsync<int>(sql, artist);
             }
         }
 
-        public async Task<IEnumerable<Actor>> GetAll()
+        public async Task<IEnumerable<Artist>> GetAll()
         {
-            var sql = "SELECT * FROM Actor";
+            var sql = "SELECT * FROM Artist";
 
             using (var connection = _context.CreateConnection())
             {
-                return await connection.QueryAsync<Actor>(sql);
+                return await connection.QueryAsync<Artist>(sql);
             }
         }
 
-        public async Task<Actor?> GetActor(int id)
+        public async Task<Artist?> GetArtist(int id)
         {
             var sql = @"SELECT * 
-                        FROM Actor ac 
+                        FROM Artist ac 
                         WHERE ac.Id = @Id";
 
             using (var connection = _context.CreateConnection())
             {
-                return await connection.QuerySingleOrDefaultAsync<Actor>(sql, new { id });
+                return await connection.QuerySingleOrDefaultAsync<Artist>(sql, new { id });
             }
         }
 
-        public async Task<IEnumerable<Actor>> GetAllByMovieId(int movieId)
+        public async Task<IEnumerable<Artist>> GetAllBySongId(int songId)
         {
-            var sql = "spActor_GetAllByMovieId";
+            var sql = "spArtist_GetAllBySongId";
 
             using (var connection = _context.CreateConnection())
             {
-                return await connection.QueryAsync<Actor>(sql, new { movieId }, commandType: CommandType.StoredProcedure);
+                return await connection.QueryAsync<Artist>(sql, new { songId }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public async Task<bool> Update(Actor actor)
+        public async Task<bool> Update(Artist artist)
         {
-            var sql = @"UPDATE Actor
+            var sql = @"UPDATE Artist
                         SET Name = @Name 
                         WHERE Id = @Id";
 
             using (var connection = _context.CreateConnection())
             {
-                var update = await connection.ExecuteAsync(sql, actor);
+                var update = await connection.ExecuteAsync(sql, artist);
                 return update == 1;
             }
         }
 
         public async Task<bool> Delete(int id)
         {
-            var sql = "DELETE FROM Actor WHERE Id = @Id";
+            var sql = "DELETE FROM Artist WHERE Id = @Id";
 
             using (var connection = _context.CreateConnection())
             {
