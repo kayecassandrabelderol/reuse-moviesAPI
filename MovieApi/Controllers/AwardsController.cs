@@ -11,10 +11,10 @@ namespace MovieApi.Controllers
     public class AwardsController : ControllerBase
     {
         private readonly IAwardService _awardService;
-        private readonly IMovieService _movieService;
+        private readonly ISongService _movieService;
         private readonly ILogger<AwardsController> _logger;
 
-        public AwardsController(IAwardService awardService, ILogger<AwardsController> logger, IMovieService movieService)
+        public AwardsController(IAwardService awardService, ILogger<AwardsController> logger, ISongService movieService)
         {
             _awardService = awardService;
             _logger = logger;

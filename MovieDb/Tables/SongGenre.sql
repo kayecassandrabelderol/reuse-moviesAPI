@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[SongGenre]
+(
+    [SongId] INT NOT NULL, 
+    [GenreId] INT NOT NULL, 
+    CONSTRAINT [FK_SongGenre_Song] FOREIGN KEY ([SongId]) REFERENCES [Song]([Id]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [FK_SongGenre_Genre] FOREIGN KEY ([GenreId]) REFERENCES [Genre]([Id]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [PK_SongGenre] PRIMARY KEY CLUSTERED ([SongId], [GenreId])
+)

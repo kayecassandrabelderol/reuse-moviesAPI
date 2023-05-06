@@ -62,21 +62,21 @@
     <Folder Include="Mocks" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\Movie.sql" />
-    <Build Include="Tables\Actor.sql" />
+    <Build Include="Tables\Song.sql" />
+    <Build Include="Tables\Artist.sql" />
     <Build Include="Tables\Genre.sql" />
     <Build Include="Tables\Award.sql" />
-    <Build Include="Tables\MovieActor.sql" />
-    <Build Include="Tables\MovieGenre.sql" />
+    <Build Include="Tables\SongArtist.sql" />
+    <Build Include="Tables\SongGenre.sql" />
     <Build Include="Stored Procedures\temp.sql" />
     <Build Include="Stored Procedures\spActor_GetAllByMovieId.sql" />
     <Build Include="Stored Procedures\spAward_GetAllByMovieId.sql" />
     <Build Include="Stored Procedures\spGenre_GetAllByMovieId.sql" />
-    <Build Include="Stored Procedures\spMovie_GetAllByActorId.sql" />
-    <Build Include="Stored Procedures\spMovie_GetAllByGenreId.sql" />
-    <Build Include="Stored Procedures\spMovie_GetMovieDetails.sql" />
-    <Build Include="Stored Procedures\spMovieActor_IsActorInMovie.sql" />
-    <Build Include="Stored Procedures\spMovieGenre_IsGenreInMovie.sql" />
+    <Build Include="Stored Procedures\spSong_GetAllByArtistId.sql" />
+    <Build Include="Stored Procedures\spSong_GetAllByGenreId.sql" />
+    <Build Include="Stored Procedures\spSong_GetSongDetails.sql" />
+    <Build Include="Stored Procedures\spSongArtist_IsArtistInSong.sql" />
+    <Build Include="Stored Procedures\spSongGenre_IsGenreInSong.sql" />
     <None Include="Mocks\MovieDataMocks.sql" />
   </ItemGroup>
   <ItemGroup>

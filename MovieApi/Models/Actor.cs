@@ -8,6 +8,6 @@ namespace MovieApi.Models
         public string? Name { get; set; }
         public string? Gender { get; set; }
         public DateTime Birthday { get; set; }
-        public List<Movie> Movies { get; set; } = new List<Movie>();
+        public List<Song> Movies { get; set; } = new List<Song>();
     }
 }
