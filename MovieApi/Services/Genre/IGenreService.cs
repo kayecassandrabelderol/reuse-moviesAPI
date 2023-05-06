@@ -1,4 +1,5 @@
-﻿using MovieApi.Dtos.Genre;
+﻿using Api.Dtos.Genre;
+using MovieApi.Dtos.Genre;
 using MovieApi.Models;
 
 namespace MovieApi.Services
