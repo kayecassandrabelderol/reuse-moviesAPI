@@ -12,7 +12,7 @@ namespace MovieApi.Dtos.Award
         [Range(1980, 2050, ErrorMessage = "Award Year must be between 1980 and 2050.")]
         public int Year { get; set; }
 
-        [Required(ErrorMessage = "Award MovieId is required.")]
-        public int MovieId { get; set; }
+        [Required(ErrorMessage = "Award SongId is required.")]
+        public int SongId { get; set; }
     }
 }

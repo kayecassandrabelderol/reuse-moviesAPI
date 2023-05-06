@@ -40,7 +40,7 @@ namespace MovieApi.Services
 
         public async Task<IEnumerable<SongDto>> GetAllSongsByArtistId(int artistId)
         {
-            var songModels = await _songRepository.GetAllByActorId(artistId);
+            var songModels = await _songRepository.GetAllByArtistId(artistId);
 
             return _mapper.Map<IEnumerable<SongDto>>(songModels);
         }
@@ -65,20 +65,20 @@ namespace MovieApi.Services
                 ReleaseDate = songModel.ReleaseDate.ToString("D")
             };
 
-            var nonNullMovies = songModel.Genres.Where(x => x != null).ToList();
-            var nonNullActors = songModel.Actors.Where(x => x != null).ToList();
+            var nonNullSongs = songModel.Genres.Where(x => x != null).ToList();
+            var nonNullArtists = songModel.Artists.Where(x => x != null).ToList();
             var nonNullAwards = songModel.Awards.Where(x => x != null).ToList();
 
-            if (nonNullMovies.Any())
+            if (nonNullSongs.Any())
             {
-                var songNames = nonNullMovies.Select(x => x.Name).ToList();
+                var songNames = nonNullSongs.Select(x => x.Name).ToList();
                 ret.Genres = songNames.Distinct().ToList();
             }
 
-            if (nonNullActors.Any())
+            if (nonNullArtists.Any())
             {
-                var artistNames = nonNullActors.Select(x => x.Name).ToList();
-                ret.Actors = artistNames.Distinct().ToList();
+                var artistNames = nonNullArtists.Select(x => x.Name).ToList();
+                ret.Artists = artistNames.Distinct().ToList();
             }
 
             if (nonNullAwards.Any())

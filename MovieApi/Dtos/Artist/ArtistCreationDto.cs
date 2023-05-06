@@ -2,16 +2,16 @@
 
 namespace MovieApi.Dtos.Actor
 {
-    public class ActorCreationDto
+    public class ArtistCreationDto
     {
-        [Required(ErrorMessage = "Actor Name is required.")]
+        [Required(ErrorMessage = "Artist Name is required.")]
         [MaxLength(50, ErrorMessage = "Maximum Name length is 50 characters")]
         public string? Name { get; set; }
 
-        [Required(ErrorMessage = "Actor Gender is required.")]
+        [Required(ErrorMessage = "Artist Gender is required.")]
         public string? Gender { get; set; }
 
-        [Required(ErrorMessage = "Actor Birthday is required.")]
+        [Required(ErrorMessage = "Artist Birthday is required.")]
         public string? Birthday { get; set; }
     }
 }

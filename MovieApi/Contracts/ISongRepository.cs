@@ -21,7 +21,7 @@ namespace MovieApi.Contracts
         /// Gets all Songs from the given <paramref name="artistId"/>
         /// </summary>
         /// <param name="artistId"></param>
-        /// <returns>Returns all Songs from an actor</returns>
+        /// <returns>Returns all Songs from an artist</returns>
         Task<IEnumerable<Song>> GetAllByArtistId(int artistId);
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace MovieApi.Contracts
         /// </summary>
         /// <param name="songId"></param>
         /// <param name="genreId"></param>
-        /// <returns>Returns true if genre exists within a movie, false otherwise</returns>
+        /// <returns>Returns true if genre exists within a song, false otherwise</returns>
         Task<bool> IsGenreInSong(int songId, int genreId);
 
         /// <summary>

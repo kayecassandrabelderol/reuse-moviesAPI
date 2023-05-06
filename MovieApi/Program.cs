@@ -16,8 +16,8 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "Movie API",
-        Description = "API for Movies and its related attributes: Genres, Actors, and Awards",
+        Title = "Artists API",
+        Description = "API for Artists and its related attributes: Genres, Songs, and Awards",
         Contact = new OpenApiContact
         {
             Name = "The Johns and a Flower",
@@ -61,7 +61,7 @@ void ConfigureServices(IServiceCollection services)
     //Services
     services.AddScoped<ISongService, SongService>();
     services.AddScoped<IGenreService, GenreService>();
-    services.AddScoped<IActorService, ActorService>();
+    services.AddScoped<IArtistService, ArtistService>();
     services.AddScoped<IAwardService, AwardService>();
     services.AddScoped<ISongArtistService, SongArtistService>();
     services.AddScoped<ISongGenreService, SongGenreService>();
@@ -69,6 +69,6 @@ void ConfigureServices(IServiceCollection services)
     //Repos
     services.AddScoped<ISongRepository, SongRepository>();
     services.AddScoped<IGenreRepository, GenreRepository>();
-    services.AddScoped<IActorRepository, ActorRepository>();
+    services.AddScoped<IArtistRepository, ArtistRepository>();
     services.AddScoped<IAwardRepository, AwardRepository>();
 }

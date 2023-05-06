@@ -46,13 +46,13 @@ namespace MovieApi.Repositories
             }
         }
 
-        public async Task<IEnumerable<Genre>> GetAllByMovieId(int movieId)
+        public async Task<IEnumerable<Genre>> GetAllBySongId(int songId)
         {
-            var sql = "spGenre_GetAllByMovieId";
+            var sql = "spGenre_GetAllBySongId";
 
             using (var connection = _context.CreateConnection())
             {
-                return await connection.QueryAsync<Genre>(sql, new { movieId }, commandType: CommandType.StoredProcedure);
+                return await connection.QueryAsync<Genre>(sql, new { songId }, commandType: CommandType.StoredProcedure);
             }
         }
 

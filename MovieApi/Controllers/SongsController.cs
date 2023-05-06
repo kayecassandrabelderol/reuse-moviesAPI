@@ -15,7 +15,7 @@ namespace MovieApi.Controllers
     {
         private readonly ISongService _songService;
         private readonly IGenreService _genreService;
-        private readonly IActorService _actorService;
+        private readonly IArtistService _artistService;
         private readonly IAwardService _awardService;
         private readonly ISongArtistService _songArtistService;
         private readonly ISongGenreService _songGenreService;
@@ -25,7 +25,7 @@ namespace MovieApi.Controllers
             ISongService songService,
             ILogger<SongsController> logger,
             IGenreService genreService,
-            IActorService actorService,
+            IArtistService artistService,
             IAwardService awardService,
             ISongArtistService songArtistService,
             ISongGenreService songGenreService)
@@ -33,7 +33,7 @@ namespace MovieApi.Controllers
             _songService = songService;
             _logger = logger;
             _genreService = genreService;
-            _actorService = actorService;
+            _artistService = artistService;
             _awardService = awardService;
             _songArtistService = songArtistService;
             _songGenreService = songGenreService;
@@ -95,7 +95,7 @@ namespace MovieApi.Controllers
         [ProducesResponseType(typeof(SongByIdDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetMovieById(int id)
+        public async Task<IActionResult> GetSongById(int id)
         {
             try
             {
@@ -181,7 +181,7 @@ namespace MovieApi.Controllers
         /// <response code = "500">Internal Server Error</response>
         [HttpGet("{id}/artists", Name = "GetSongArtists")]
         [Produces("application/json")]
-        [ProducesResponseType(typeof(ActorDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ArtistDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -196,13 +196,13 @@ namespace MovieApi.Controllers
                     return NotFound($"Song with id {id} does not exist");
                 }
 
-                var actors = await _actorService.GetAllActors(id);
-                if (!actors.Any())
+                var artists = await _artistService.GetAllArtists(id);
+                if (!artists.Any())
                 {
                     return NoContent();
                 }
 
-                return Ok(actors);
+                return Ok(artists);
             }
             catch (Exception e)
             {
@@ -232,7 +232,7 @@ namespace MovieApi.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetMovieAwards(int id)
+        public async Task<IActionResult> GetSongAwards(int id)
         {
             try
             {
@@ -307,7 +307,7 @@ namespace MovieApi.Controllers
         /// 
         /// </remarks>
         /// <response code = "200">Successfully added artist to song</response>
-        /// <response code = "400">Song is already in movie</response>
+        /// <response code = "400">Song is already in song</response>
         /// <response code = "404">Song / Artist with the given ids does not exist</response>
         /// <response code = "500">Internal Server Error</response>
         [HttpPut("{id}/artists/{artistId}", Name = "AddArtistToSong")]
@@ -316,7 +316,7 @@ namespace MovieApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> AddActorToMovie(int id, int artistId)
+        public async Task<IActionResult> AddArtistToSong(int id, int artistId)
         {
             try
             {
@@ -327,14 +327,14 @@ namespace MovieApi.Controllers
                     return NotFound($"Song with id {id} does not exist");
                 }
 
-                var artist = await _actorService.GetActorById(artistId);
+                var artist = await _artistService.GetArtistById(artistId);
 
                 if (artist == null)
                 {
                     return NotFound($"Artist with id {artistId} does not exist");
                 }
 
-                //check if actor is already in movie
+                //check if artist is already in song
                 if (await _songArtistService.IsArtistInSong(id, artistId) == true)
                 {
                     return BadRequest("Artist Already In Song");
@@ -390,7 +390,7 @@ namespace MovieApi.Controllers
                     return NotFound($"Genre with id {genreId} does not exist");
                 }
 
-                //check if genre is already in movie
+                //check if genre is already in song
                 if (await _songGenreService.IsGenreInSong(id, genreId))
                 {
                     return BadRequest("Genre Already In Song");
@@ -435,7 +435,7 @@ namespace MovieApi.Controllers
         {
             try
             {
-                //check if movie exists
+                //check if song exists
                 var checkSong = await _songService.GetSongOnly(id);
                 if (checkSong == null)
                 {
@@ -478,7 +478,7 @@ namespace MovieApi.Controllers
                 var checkSong = await _songService.GetSongOnly(id);
                 if (checkSong == null)
                 {
-                    return NotFound($"Movie with id {id} does not exist");
+                    return NotFound($"Song with id {id} does not exist");
                 }
 
                 var isSongDeleted = await _songService.DeleteSong(id);
@@ -535,7 +535,7 @@ namespace MovieApi.Controllers
                     return BadRequest("Genre is NOT in Song");
                 }
 
-                var isGenreFromMovieDeleted = await _songGenreService.DeleteGenreInSong(id, genreId);
+                var isGenreFromSongDeleted = await _songGenreService.DeleteGenreInSong(id, genreId);
                 return Ok("Genre From Song Deleted");
             }
             catch (Exception e)
@@ -546,7 +546,7 @@ namespace MovieApi.Controllers
         }
 
         /// <summary>
-        /// Removes an actor from song
+        /// Removes an artist from song
         /// </summary>
         /// <param name="id"></param>
         /// <param name="artistId"></param>
@@ -557,7 +557,7 @@ namespace MovieApi.Controllers
         /// 
         /// </remarks>
         /// <response code = "200">Successfully deleted artist from song</response>
-        /// <response code = "400">Artist is not in movie</response>
+        /// <response code = "400">Artist is not in song</response>
         /// <response code = "404">Song / Artist with the given ids does not exist</response>
         /// <response code = "500">Internal Server Error</response>
         [HttpDelete("{id}/artists/{artistId}", Name = "DeleteArtistFromSong")]
@@ -566,7 +566,7 @@ namespace MovieApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> DeleteActorFromMovie(int id, int artistId)
+        public async Task<IActionResult> DeleteArtistFromSong(int id, int artistId)
         {
             try
             {
@@ -577,9 +577,9 @@ namespace MovieApi.Controllers
                     return NotFound($"Song with id {id} does not exist");
                 }
 
-                var actor = await _actorService.GetActorById(artistId);
+                var artist = await _artistService.GetArtistById(artistId);
 
-                if (actor == null)
+                if (artist == null)
                 {
                     return NotFound($"Artist with id {artistId} does not exist");
                 }
@@ -589,7 +589,7 @@ namespace MovieApi.Controllers
                     return BadRequest("Artist is NOT in Song");
                 }
 
-                var isActorFromMovieDeleted = await _songArtistService.DeleteArtistInSong(id, artistId);
+                var isArtistFromSongDeleted = await _songArtistService.DeleteArtistInSong(id, artistId);
                 return Ok("Artist From Song is Deleted");
             }
             catch (Exception e)

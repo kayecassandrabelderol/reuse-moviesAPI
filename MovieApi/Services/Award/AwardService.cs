@@ -37,9 +37,9 @@ namespace MovieApi.Services
             return _mapper.Map<IEnumerable<AwardDto>>(awardModels);
         }
 
-        public async Task<IEnumerable<AwardDto>> GetAllAwards(int movieId)
+        public async Task<IEnumerable<AwardDto>> GetAllAwards(int songId)
         {
-            var awardModels = await _awardRepository.GetAllByMovieId(movieId);
+            var awardModels = await _awardRepository.GetAllBySongId(songId);
 
             return _mapper.Map<IEnumerable<AwardDto>>(awardModels);
         }

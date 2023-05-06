@@ -11,11 +11,11 @@ namespace MovieApi.Contracts
         Task<IEnumerable<Award>> GetAll();
 
         /// <summary>
-        /// Gets all Awards from the given <paramref name="movieId"/>
+        /// Gets all Awards from the given <paramref name="songId"/>
         /// </summary>
-        /// <param name="movieId"></param>
-        /// <returns>Returns all Awards from a movie</returns>
-        Task<IEnumerable<Award>> GetAllByMovieId(int movieId);
+        /// <param name="songId"></param>
+        /// <returns>Returns all Awards from a song</returns>
+        Task<IEnumerable<Award>> GetAllBySongId(int songId);
 
         /// <summary>
         /// Gets a single Award from a given <paramref name="id"/>

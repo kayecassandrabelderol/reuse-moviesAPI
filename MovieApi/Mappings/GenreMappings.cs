@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Api.Dtos.Genre;
+using AutoMapper;
 using MovieApi.Dtos.Genre;
 using MovieApi.Models;
 

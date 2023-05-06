@@ -11,11 +11,11 @@ namespace MovieApi.Contracts
         Task<IEnumerable<Genre>> GetAll();
 
         /// <summary>
-        /// Gets all Genres from the given <paramref name="movieId"/>
+        /// Gets all Genres from the given <paramref name="songId"/>
         /// </summary>
-        /// <param name="movieId"></param>
-        /// <returns>Returns all Genres from a movie</returns>
-        Task<IEnumerable<Genre>> GetAllByMovieId(int movieId);
+        /// <param name="songId"></param>
+        /// <returns>Returns all Genres from a song</returns>
+        Task<IEnumerable<Genre>> GetAllBySongId(int songId);
 
         /// <summary>
         /// Gets a single Genre from a given <paramref name="id"/>

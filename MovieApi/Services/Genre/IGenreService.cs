@@ -12,11 +12,11 @@ namespace MovieApi.Services
         Task<IEnumerable<GenreDto>> GetAllGenres();
 
         /// <summary>
-        /// Gets all genres from a given <paramref name="movieId"/>
+        /// Gets all genres from a given <paramref name="songId"/>
         /// </summary>
-        /// <param name="movieId"></param>
-        /// <returns>Returns all Genres from a movie as GenreDto</returns>
-        Task<IEnumerable<GenreDto>> GetAllGenres(int movieId);
+        /// <param name="songId"></param>
+        /// <returns>Returns all Genres from a song as GenreDto</returns>
+        Task<IEnumerable<GenreDto>> GetAllGenres(int songId);
 
         /// <summary>
         /// Gets a single Genre from a given <paramref name="id"/>

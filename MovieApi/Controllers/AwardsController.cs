@@ -11,14 +11,14 @@ namespace MovieApi.Controllers
     public class AwardsController : ControllerBase
     {
         private readonly IAwardService _awardService;
-        private readonly ISongService _movieService;
+        private readonly ISongService _songService;
         private readonly ILogger<AwardsController> _logger;
 
-        public AwardsController(IAwardService awardService, ILogger<AwardsController> logger, ISongService movieService)
+        public AwardsController(IAwardService awardService, ILogger<AwardsController> logger, ISongService songService)
         {
             _awardService = awardService;
             _logger = logger;
-            _movieService = movieService;
+            _songService = songService;
         }
 
         /// <summary>
@@ -109,13 +109,13 @@ namespace MovieApi.Controllers
         ///     {
         ///         "name" : "Best Film",
         ///         "year" : 2022,
-        ///         "movieId" : 1
+        ///         "songId" : 1
         ///     }
         /// 
         /// </remarks>
         /// <response code = "201">Successfully created an award</response>
-        /// <response code = "400">Actor details are invalid</response>
-        /// <response code = "404">MovieId does not exist</response>
+        /// <response code = "400">Artist details are invalid</response>
+        /// <response code = "404">SongId does not exist</response>
         /// <response code = "500">Internal Server Error</response>
         [HttpPost(Name = "CreateAward")]
         [Consumes("application/json")]
@@ -128,12 +128,12 @@ namespace MovieApi.Controllers
         {
             try
             {
-                //check if movieId exists
-                var movie = await _movieService.GetMovieOnly(awardToCreate.MovieId);
+                //check if songId exists
+                var song = await _songService.GetSongOnly(awardToCreate.SongId);
 
-                if (movie == null)
+                if (song == null)
                 {
-                    return NotFound($"Movie with id {awardToCreate.MovieId} does not exist");
+                    return NotFound($"Song with id {awardToCreate.SongId} does not exist");
                 }
 
                 var newAward = await _awardService.CreateAward(awardToCreate);

@@ -81,6 +81,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\tempScript.sql" />
-    <None Include="MovieDb.publish.xml" />
   </ItemGroup>
 </Project>
