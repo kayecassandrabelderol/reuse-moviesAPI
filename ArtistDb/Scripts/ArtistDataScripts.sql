@@ -11,18 +11,18 @@ GO
 insert into Genre (Name)
 values
 ('R&B'),
-('Rock'),
-('Pop'),
-('Country'),
-('Hip Hop')
+('Electronic'),
+('Korean Pop'),
+('EDM'),
+('Dance Pop')
 GO
 
 --insert to Song
-insert into Song (Title, Duration, ReleaseDate) values ('sample song 1', 255, '2016-11-20');
-insert into Song (Title, Duration, ReleaseDate) values ('sample song 2', 255, '2023-11-20');
-insert into Song (Title, Duration, ReleaseDate) values ('sample song 3', 255, '2023-11-20');
-insert into Song (Title, Duration, ReleaseDate) values ('sample song 4', 255, '2023-11-20');
-insert into Song (Title, Duration, ReleaseDate) values ('sample song 5', 255, '2023-11-20');
+insert into Song (Title, Duration, ReleaseDate) values ('Good Day', 3.53, '2010-12-09');
+insert into Song (Title, Duration, ReleaseDate) values ('Gashina', 3.00, '2017-08-22');
+insert into Song (Title, Duration, ReleaseDate) values ('Criminal', 3.31, '2020-09-07');
+insert into Song (Title, Duration, ReleaseDate) values ('Gangnam Style', 3.39, '2012-07-15');
+insert into Song (Title, Duration, ReleaseDate) values ('Pretty Please', 5.26, '2020-09-04');
 GO
 
 --insert to Award
