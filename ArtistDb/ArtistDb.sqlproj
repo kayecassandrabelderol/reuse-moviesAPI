@@ -68,9 +68,6 @@
     <Build Include="Tables\SongArtist.sql" />
     <Build Include="Tables\SongGenre.sql" />
     <Build Include="Stored Procedures\temp.sql" />
-    <Build Include="Stored Procedures\spActor_GetAllByMovieId.sql" />
-    <Build Include="Stored Procedures\spAward_GetAllByMovieId.sql" />
-    <Build Include="Stored Procedures\spGenre_GetAllByMovieId.sql" />
     <Build Include="Stored Procedures\spSong_GetAllByArtistId.sql" />
     <Build Include="Stored Procedures\spSong_GetAllByGenreId.sql" />
     <Build Include="Stored Procedures\spSong_GetSongDetails.sql" />
@@ -80,6 +77,6 @@
   <ItemGroup>
     <None Include="Scripts\tempScript.sql" />
     <None Include="Scripts\ArtistDataScripts.sql" />
-    <None Include="MovieDb.publish.xml" />
+    <None Include="ArtistDb.publish.xml" />
   </ItemGroup>
 </Project>
