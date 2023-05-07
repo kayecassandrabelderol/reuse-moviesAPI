@@ -10,11 +10,11 @@ GO
 --insert to Genre
 insert into Genre (Name)
 values
-('Genre Sample1'),
-('Genre Sample2'),
-('Genre Sample3'),
-('Genre Sample4'),
-('Genre Sample5')
+('R&B'),
+('Rock'),
+('Pop'),
+('Country'),
+('Hip Hop')
 GO
 
 --insert to Song
