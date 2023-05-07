@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>MovieDb</Name>
+    <Name>ArtistDb</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{78a406b4-3e23-4bc4-88bd-7bf79ce2bb75}</ProjectGuid>
@@ -68,9 +68,6 @@
     <Build Include="Tables\SongArtist.sql" />
     <Build Include="Tables\SongGenre.sql" />
     <Build Include="Stored Procedures\temp.sql" />
-    <Build Include="Stored Procedures\spActor_GetAllByMovieId.sql" />
-    <Build Include="Stored Procedures\spAward_GetAllByMovieId.sql" />
-    <Build Include="Stored Procedures\spGenre_GetAllByMovieId.sql" />
     <Build Include="Stored Procedures\spSong_GetAllByArtistId.sql" />
     <Build Include="Stored Procedures\spSong_GetAllByGenreId.sql" />
     <Build Include="Stored Procedures\spSong_GetSongDetails.sql" />
@@ -80,6 +77,6 @@
   <ItemGroup>
     <None Include="Scripts\tempScript.sql" />
     <None Include="Scripts\ArtistDataScripts.sql" />
-    <None Include="MovieDb.publish.xml" />
+    <None Include="ArtistDb.publish.xml" />
   </ItemGroup>
 </Project>

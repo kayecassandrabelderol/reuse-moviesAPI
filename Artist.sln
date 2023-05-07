@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MovieDb", "MovieDb\MovieDb.sqlproj", "{78A406B4-3E23-4BC4-88BD-7BF79CE2BB75}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ArtistDb", "ArtistDb\ArtistDb.sqlproj", "{78A406B4-3E23-4BC4-88BD-7BF79CE2BB75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApi", "MovieApi\MovieApi.csproj", "{083BA4ED-DB3D-40F5-8EA5-1CB395DDA203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtistApi", "ArtistApi\ArtistApi.csproj", "{083BA4ED-DB3D-40F5-8EA5-1CB395DDA203}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
