@@ -26,11 +26,14 @@ insert into Song (Title, Duration, ReleaseDate) values ('Pretty Please', 5.26, '
 GO
 
 --insert to Award
-insert into Award (Name, Year, SongId) values ('sample award 1', 2021, 1);
-insert into Award (Name, Year, SongId) values ('sample award 2', 2022, 2);
-insert into Award (Name, Year, SongId) values ('sample award 3', 2023, 3);
-insert into Award (Name, Year, SongId) values ('sample award 4', 2024, 4);
-insert into Award (Name, Year, SongId) values ('sample award 5', 2025, 5);
+insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2015, 1);
+insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2016, 2);
+insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2017, 3);
+insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2018, 4);
+insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2019, 5);
+insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2020, 6);
+insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2021, 7);
+insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2022, 8);
 GO
 
 --SongArtists
