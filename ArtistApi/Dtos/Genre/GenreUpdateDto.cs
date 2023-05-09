@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MovieApi.Dtos.Genre
+namespace ArtistApi.Dtos.Genre
 {
     public class GenreUpdateDto
     {

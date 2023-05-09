@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using MovieApi.Dtos.Movie;
-using MovieApi.Models;
+using ArtistApi.Dtos.Movie;
+using ArtistApi.Models;
 using System.Globalization;
 
-namespace MovieApi.Mappings
+namespace ArtistApi.Mappings
 {
     public class SongMappings : Profile
     {

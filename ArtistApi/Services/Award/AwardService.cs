@@ -1,9 +1,9 @@
-﻿using MovieApi.Models;
-using MovieApi.Contracts;
-using MovieApi.Dtos.Award;
+﻿using ArtistApi.Models;
+using ArtistApi.Contracts;
+using ArtistApi.Dtos.Award;
 using AutoMapper;
 
-namespace MovieApi.Services
+namespace ArtistApi.Services
 {
     public class AwardService : IAwardService
     {

@@ -1,10 +1,10 @@
 ﻿using Dapper;
-using MovieApi.Context;
-using MovieApi.Contracts;
-using MovieApi.Models;
+using ArtistApi.Context;
+using ArtistApi.Contracts;
+using ArtistApi.Models;
 using System.Data;
 
-namespace MovieApi.Repositories
+namespace ArtistApi.Repositories
 {
     public class GenreRepository : IGenreRepository
     {

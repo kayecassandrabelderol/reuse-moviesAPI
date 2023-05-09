@@ -1,4 +1,4 @@
-﻿namespace MovieApi.Dtos.Movie
+﻿namespace ArtistApi.Dtos.Movie
 {
     public class SongDto
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using MovieApi.Dtos.Award;
-using MovieApi.Services;
+using ArtistApi.Dtos.Award;
+using ArtistApi.Services;
 
 namespace MovieApi.Controllers
 {

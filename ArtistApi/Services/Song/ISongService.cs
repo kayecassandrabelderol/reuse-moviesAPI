@@ -1,7 +1,7 @@
-﻿using MovieApi.Dtos.Movie;
-using MovieApi.Models;
+﻿using ArtistApi.Dtos.Movie;
+using ArtistApi.Models;
 
-namespace MovieApi.Services
+namespace ArtistApi.Services
 {
     public interface ISongService
     {

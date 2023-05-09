@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MovieApi.Dtos.Actor
+namespace ArtistApi.Dtos.Actor
 {
     public class ArtistUpdateDto
     {

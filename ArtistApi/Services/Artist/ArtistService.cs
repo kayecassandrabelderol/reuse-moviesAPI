@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using MovieApi.Contracts;
-using MovieApi.Dtos.Actor;
-using MovieApi.Models;
+using ArtistApi.Contracts;
+using ArtistApi.Dtos.Actor;
+using ArtistApi.Models;
 
-namespace MovieApi.Services
+namespace ArtistApi.Services
 {
     public class ArtistService : IArtistService
     {

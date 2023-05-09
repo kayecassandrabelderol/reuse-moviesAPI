@@ -1,10 +1,10 @@
 ﻿using Api.Dtos.Genre;
 using AutoMapper;
-using MovieApi.Contracts;
-using MovieApi.Dtos.Genre;
-using MovieApi.Models;
+using ArtistApi.Contracts;
+using ArtistApi.Dtos.Genre;
+using ArtistApi.Models;
 
-namespace MovieApi.Services
+namespace ArtistApi.Services
 {
     public class GenreService : IGenreService
     {

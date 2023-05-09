@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MovieApi.Dtos.Award
+namespace ArtistApi.Dtos.Award
 {
     public class AwardUpdateDto
     {

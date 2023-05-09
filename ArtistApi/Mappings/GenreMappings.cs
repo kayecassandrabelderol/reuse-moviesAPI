@@ -1,9 +1,9 @@
 ﻿using Api.Dtos.Genre;
 using AutoMapper;
-using MovieApi.Dtos.Genre;
-using MovieApi.Models;
+using ArtistApi.Dtos.Genre;
+using ArtistApi.Models;
 
-namespace MovieApi.Mappings
+namespace ArtistApi.Mappings
 {
     public class GenreMappings : Profile
     {

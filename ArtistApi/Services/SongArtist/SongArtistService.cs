@@ -1,6 +1,6 @@
-﻿using MovieApi.Contracts;
+﻿using ArtistApi.Contracts;
 
-namespace MovieApi.Services
+namespace ArtistApi.Services
 {
     public class SongArtistService : ISongArtistService
     {

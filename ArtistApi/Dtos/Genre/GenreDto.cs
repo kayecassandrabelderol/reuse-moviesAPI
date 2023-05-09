@@ -1,4 +1,4 @@
-﻿namespace MovieApi.Dtos.Genre
+﻿namespace ArtistApi.Dtos.Genre
 {
     public class GenreDto
     {

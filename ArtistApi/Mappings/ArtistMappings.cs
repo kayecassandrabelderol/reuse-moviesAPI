@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using MovieApi.Dtos.Actor;
-using MovieApi.Models;
+using ArtistApi.Dtos.Actor;
+using ArtistApi.Models;
 using System.Globalization;
 
-namespace MovieApi.Mappings
+namespace ArtistApi.Mappings
 {
     public class ArtistMappings : Profile
     {
