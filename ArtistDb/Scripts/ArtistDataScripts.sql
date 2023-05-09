@@ -31,9 +31,6 @@ insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2016, 
 insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2017, 3);
 insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2018, 4);
 insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2019, 5);
-insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2020, 6);
-insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2021, 7);
-insert into Award (Name, Year, SongId) values ('MAMA - Song of the Year', 2022, 8);
 GO
 
 --SongArtists

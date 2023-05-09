@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualBasic;
 
-namespace MovieApi.Models
+namespace ArtistApi.Models
 {
     public class Artist
     {

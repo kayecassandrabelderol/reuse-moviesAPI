@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace MovieApi.Context
+namespace ArtistApi.Context
 {
     public class DapperContext
     {

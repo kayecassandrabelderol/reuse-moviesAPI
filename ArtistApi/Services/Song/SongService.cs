@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using MovieApi.Contracts;
-using MovieApi.Dtos.Movie;
-using MovieApi.Models;
+using ArtistApi.Contracts;
+using ArtistApi.Dtos.Movie;
+using ArtistApi.Models;
 using System.Globalization;
 
-namespace MovieApi.Services
+namespace ArtistApi.Services
 {
     public class SongService : ISongService
     {

@@ -1,8 +1,8 @@
 ﻿using Api.Dtos.Genre;
-using MovieApi.Dtos.Genre;
-using MovieApi.Models;
+using ArtistApi.Dtos.Genre;
+using ArtistApi.Models;
 
-namespace MovieApi.Services
+namespace ArtistApi.Services
 {
     public interface IGenreService
     {

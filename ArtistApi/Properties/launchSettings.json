@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "MovieApi": {
+    "ArtistApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

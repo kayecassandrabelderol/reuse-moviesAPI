@@ -1,8 +1,8 @@
 using Microsoft.OpenApi.Models;
-using MovieApi.Context;
-using MovieApi.Contracts;
-using MovieApi.Repositories;
-using MovieApi.Services;
+using ArtistApi.Context;
+using ArtistApi.Contracts;
+using ArtistApi.Repositories;
+using ArtistApi.Services;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,8 +20,8 @@ builder.Services.AddSwaggerGen(options =>
         Description = "API for Artists and its related attributes: Genres, Songs, and Awards",
         Contact = new OpenApiContact
         {
-            Name = "The Johns and a Flower",
-            Url = new Uri("https://github.com/CITUCCS/csit327-project-group-8-the-johns-and-a-flower")
+            Name = "OPPAsara mi Sir",
+            Url = new Uri("https://github.com/CITUCCS/csit341-final-project-oppasara-mi-sir")
         }
     });
     //xml documentation

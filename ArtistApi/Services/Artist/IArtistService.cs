@@ -1,6 +1,6 @@
-﻿using MovieApi.Dtos.Actor;
+﻿using ArtistApi.Dtos.Actor;
 
-namespace MovieApi.Services
+namespace ArtistApi.Services
 {
     public interface IArtistService
     {

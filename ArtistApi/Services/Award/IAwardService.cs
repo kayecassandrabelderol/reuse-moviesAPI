@@ -1,7 +1,7 @@
-﻿using MovieApi.Dtos.Award;
-using MovieApi.Models;
+﻿using ArtistApi.Dtos.Award;
+using ArtistApi.Models;
 
-namespace MovieApi.Services
+namespace ArtistApi.Services
 {
     public interface IAwardService
     {

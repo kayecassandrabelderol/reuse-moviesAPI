@@ -1,4 +1,4 @@
-﻿namespace MovieApi.Dtos.Actor
+﻿namespace ArtistApi.Dtos.Actor
 {
     public class ArtistDto
     {

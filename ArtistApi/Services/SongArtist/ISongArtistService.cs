@@ -1,4 +1,4 @@
-﻿namespace MovieApi.Services
+﻿namespace ArtistApi.Services
 {
     public interface ISongArtistService
     {

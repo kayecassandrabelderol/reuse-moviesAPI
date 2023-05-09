@@ -1,4 +1,4 @@
-﻿namespace MovieApi.Models
+﻿namespace ArtistApi.Models
 {
     public class Award
     {

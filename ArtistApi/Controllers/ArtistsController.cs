@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using MovieApi.Dtos.Actor;
-using MovieApi.Dtos.Movie;
-using MovieApi.Services;
+using ArtistApi.Dtos.Actor;
+using ArtistApi.Dtos.Movie;
+using ArtistApi.Services;
 
-namespace MovieApi.Controllers
+namespace ArtistApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

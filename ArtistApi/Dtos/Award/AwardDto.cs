@@ -1,4 +1,4 @@
-﻿namespace MovieApi.Dtos.Award
+﻿namespace ArtistApi.Dtos.Award
 {
     public class AwardDto
     {

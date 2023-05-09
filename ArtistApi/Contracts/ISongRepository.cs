@@ -1,6 +1,6 @@
-﻿using MovieApi.Models;
+﻿using ArtistApi.Models;
 
-namespace MovieApi.Contracts
+namespace ArtistApi.Contracts
 {
     public interface ISongRepository
     {
